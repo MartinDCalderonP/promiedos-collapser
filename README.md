@@ -68,4 +68,12 @@ npm install -g pnpm
 pnpm install
 ```
 
+## Contributing & Repo hygiene
+
+- Please avoid committing OS-specific files. `.DS_Store` is now ignored.
+- If you add CI later, consider adding badges to this README.
+
+If you'd like, I can add a short GitHub Actions CI that runs tests on push.
+
+
 After install, run scripts with `pnpm run <script>` (e.g. `pnpm run test`).
