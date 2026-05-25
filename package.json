@@ -8,7 +8,7 @@
     "prepare": "husky install",
     "check": "npm-run-all typecheck test build",
     "dev": "vite build --watch",
-    "package": "npm run build && cd dist && zip -r ../promiedos-collapser.zip .",
+    "package": "pnpm run build && cd dist && zip -r ../promiedos-collapser.zip .",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
