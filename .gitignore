@@ -1,5 +1,7 @@
 # Build
 dist
+release
+artifacts
 
 # Dependencies
 node_modules
