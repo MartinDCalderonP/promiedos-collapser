@@ -1,23 +1,13 @@
 # Promiedos Collapser
 
-Firefox-first MV3 extension that persists collapsed tournaments on promiedos.com.ar.
+A small Firefox-first Manifest V3 extension that persists which tournaments are collapsed on promiedos.com.ar so the UI stays consistent across navigations.
 
-## Stack
+## Quick overview
 
-- Manifest V3
-- TypeScript
-- Vite
-- Vitest
+- Built with TypeScript, bundled by Vite, tested with Vitest.
+- Persists collapsed tournament ids to `browser.storage.local` and reconciles the page when it updates.
 
-## Scripts
-
-- `pnpm run dev`: incremental build watch
-- `pnpm run typecheck`: TypeScript check
-- `pnpm run test`: unit tests
-- `pnpm run build`: production build to dist
-- `pnpm run package`: zip build output
-
-## Local Run (Firefox)
+## Quick start
 
 1. Install dependencies (pnpm recommended):
 
@@ -25,47 +15,49 @@ Firefox-first MV3 extension that persists collapsed tournaments on promiedos.com
 pnpm install
 ```
 
-2. Build the extension:
+2. Run tests:
+
+```bash
+pnpm run test
+```
+
+3. Build for development (watch):
+
+```bash
+pnpm run dev
+```
+
+4. Build production bundle:
 
 ```bash
 pnpm run build
 ```
 
-3. Open Firefox and go to `about:debugging#/runtime/this-firefox`.
-4. Click `Load Temporary Add-on...`.
-5. Select `dist/manifest.json`.
-6. Open promiedos.com.ar and collapse tournaments you do not want.
-7. Navigate between dates; state remains synchronized.
+## Load in Firefox (temporary)
+
+1. Open `about:debugging#/runtime/this-firefox` in Firefox.
+2. Click `Load Temporary Add-on...` and select `dist/manifest.json` after building.
 
 ## Behavior
 
-- Uses native tournament buttons and only clicks when current state differs from saved state.
-- Persists collapsed ids in `browser.storage.local`.
-- Re-applies state after dynamic DOM updates with a debounced MutationObserver.
-- Uses resilient selector fallbacks and multiple state signals.
+- Uses the site's native toggle controls and only triggers clicks when the saved state differs from the current DOM state.
+- Resilient to dynamic DOM updates (MutationObserver + reconcile logic).
+- Stores persisted state in `browser.storage.local`.
 
-## Tests
+## Testing
 
-Current unit tests cover:
+- Unit tests use Vitest. Key areas covered: id normalization, state parsing, and click/resolver logic.
 
-- Tournament id normalization.
-- Chevron transform parsing.
-- aria-expanded priority when reading state.
-
-## Using pnpm
-
-This repository includes a `pnpm-lock.yaml`. To use pnpm locally you can enable
-Corepack (recommended) or install pnpm globally:
+Run the test suite locally with:
 
 ```bash
-# enable corepack (bundled with modern Node versions)
-corepack enable
-
-# or install pnpm globally if you prefer
-npm install -g pnpm
-
-# then install dependencies
-pnpm install
+pnpm run test
 ```
 
-After install, run scripts with `pnpm run <script>` (e.g. `pnpm run test`).
+## Contributing
+
+- The project includes a Husky `pre-commit` hook to run tests locally before a commit (install hooks with `pnpm run prepare`).
+
+## License
+
+MIT
