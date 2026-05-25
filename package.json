@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "vite build",
+    "prepare": "husky install",
     "check": "npm-run-all typecheck test build",
     "dev": "vite build --watch",
     "package": "npm run build && cd dist && zip -r ../promiedos-collapser.zip .",
@@ -17,6 +18,7 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
+    "husky": "^8.0.0",
     "@types/chrome": "^0.1.42",
     "@types/node": "^25.9.1",
     "@types/webextension-polyfill": "^0.12.5",
