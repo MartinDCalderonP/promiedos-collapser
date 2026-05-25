@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Promiedos Collapser",
+  "version": "1.0.0",
+  "description": "Persists collapsed tournament state on promiedos.com.ar",
+  "permissions": ["storage"],
+  "host_permissions": ["*://promiedos.com.ar/*", "*://www.promiedos.com.ar/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://promiedos.com.ar/*", "*://www.promiedos.com.ar/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
