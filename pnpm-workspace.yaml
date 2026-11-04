@@ -1,7 +1,13 @@
 minimumReleaseAgeExclude:
-  - vite@8.1.6
   - '@vitest/mocker@4.1.12'
+  - undici@7.30.1
+  - glob@14.0.2
+  - minimatch@11.0.1
 overrides:
   '@vitest/mocker@>=2.1.0-beta.7 <4.1.12': ^4.1.12
   '@vitest/mocker@>=4.1.11 <4.1.12': ^4.1.12
-  vite@>=8.0.0 <=8.1.5: ^8.1.6
+  glob@>=9.0.0 <=14.0.1: ^14.0.2
+  minimatch@>=7.0.0 <11.0.1: ^11.0.1
+  undici@>=7.0.0 <7.30.1: ^7.30.1
+  undici@>=7.15.0 <7.30.1: ^7.30.1
+  undici@>=7.18.0 <7.30.1: ^7.30.1
